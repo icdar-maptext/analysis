@@ -1,3 +1,9 @@
+# -------------------------------------------------
+# Project-specific ignores
+data/00-input/
+
+# -------------------------------------------------
+# Defauts Python project ignores, generated bty Github
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
