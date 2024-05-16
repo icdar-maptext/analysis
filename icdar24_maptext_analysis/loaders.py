@@ -16,21 +16,21 @@ from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSI
 # Some utility fonctions to obtain file lists
 
 VALID_TASKS = [1, 2, 3, 4]
-TYPE_TASK_ID = Literal[1, 2, 3, 4]
+TypeTaskId = Literal[1, 2, 3, 4]
 
 VALID_SUBSETS = ["rumsey", "ign"]
-TYPE_DATASET_NAME = Literal["rumsey", "ign"]
-DATASET_NAMETOID: dict[TYPE_DATASET_NAME, int] = {
+TypeDatasetName = Literal["rumsey", "ign"]
+DATASET_NAMETOID: dict[TypeDatasetName, int] = {
     "rumsey": 1,
     "ign": 2
 }
-DATASET_IDTONAME: dict[int, TYPE_DATASET_NAME] = {
+DATASET_IDTONAME: dict[int, TypeDatasetName] = {
     1: "rumsey",
     2: "ign"
 }
 
 @lru_cache
-def list_available_images(subset: TYPE_DATASET_NAME) -> list[Path]:
+def list_available_images(subset: TypeDatasetName) -> list[Path]:
     """Returns the list of available images for a given subset"""
     if subset not in VALID_SUBSETS:
         raise ValueError(f"Invalid subset name: {subset}")
@@ -40,7 +40,7 @@ def list_available_images(subset: TYPE_DATASET_NAME) -> list[Path]:
     return [Path(p) for p in sorted(all_files)]
 
 @lru_cache
-def list_results(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]:
+def list_results(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
     """Returns the ids of the submissions available for the given task and dataset
 
     Args:
@@ -61,7 +61,7 @@ def list_results(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]:
     return [p.stem for p in all_files]
 
 
-def load_result(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id: str) -> dict:
+def load_result(task: TypeTaskId, subset: TypeDatasetName, submission_id: str) -> dict:
     """Reads the json file associated to a particular submission, for a given task and dataset.
 
     Args:
@@ -82,7 +82,7 @@ def load_result(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id: st
         return json.load(f)
 
 
-def load_results(taskid: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, filter_fn=None):
+def load_results(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
     """
     Load all results for a given task and subset as dataframes.
     :param taskid: The task ID.
@@ -133,7 +133,7 @@ def load_results(taskid: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, filter_fn=None
     return results_global_df, results_images_df
 
 @lru_cache
-def list_submissions(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]:
+def list_submissions(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
     """Returns the ids of the available submissions
 
     Args:
@@ -153,7 +153,7 @@ def list_submissions(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]
     all_files = [Path(p) for p in sorted(all_files)]
     return [p.stem for p in all_files]
 
-def load_submission(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id: str) -> dict:
+def load_submission(task: TypeTaskId, subset: TypeDatasetName, submission_id: str) -> dict:
     """Reads the json file associated to a particular submission, for a given task and dataset.
 
     Args:
@@ -174,7 +174,7 @@ def load_submission(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id
         return json.load(f)
 
 @lru_cache
-def load_gt(subset: TYPE_DATASET_NAME) -> dict:
+def load_gt(subset: TypeDatasetName) -> dict:
     """Reads the ground truth file for a given dataset
 
     Args:
@@ -190,7 +190,7 @@ def load_gt(subset: TYPE_DATASET_NAME) -> dict:
         return json.load(f)
 
 
-def list_gt_images(subset: TYPE_DATASET_NAME) -> list[str]:
+def list_gt_images(subset: TypeDatasetName) -> list[str]:
     """Returns the list of image ids for the ground truth of a given dataset
 
     Args:
@@ -205,7 +205,7 @@ def list_gt_images(subset: TYPE_DATASET_NAME) -> list[str]:
     return list(gt.keys())
 
 
-def check_for_missing_images(subset: TYPE_DATASET_NAME) -> list[str]:
+def check_for_missing_images(subset: TypeDatasetName) -> list[str]:
     """Checks if there are missing images in the ground truth
 
     Args:
