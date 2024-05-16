@@ -44,8 +44,8 @@ def list_results(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]:
     """Returns the ids of the submissions available for the given task and dataset
 
     Args:
-        task (__TYPE_TASK_ID): Task id
-        subset (__TYPE_DATASET_NAME): subset name
+        task (either 1, 2, 3 or 4): Task id
+        subset (either "rumsey" or "ign"): subset name
 
     Returns:
         list[str]: list of available submission ids, to be loaded with `load_result()`
@@ -65,8 +65,8 @@ def load_result(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id: st
     """Reads the json file associated to a particular submission, for a given task and dataset.
 
     Args:
-        task (__TYPE_TASK_ID): task id
-        subset (__TYPE_DATASET_NAME): dataset name
+        task (either 1, 2, 3 or 4): task id
+        subset (either "rumsey" or "ign"): dataset name
         submission_id (str): submission id, as returned by `list_results()`
 
     Returns:
@@ -137,8 +137,8 @@ def list_submissions(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME) -> list[str]
     """Returns the ids of the available submissions
 
     Args:
-        task (__TYPE_TASK_ID): Task id
-        subset (__TYPE_DATASET_NAME): subset name
+        task (either 1, 2, 3 or 4): Task id
+        subset (either "rumsey" or "ign"): subset name
 
     Returns:
         list[str]: list of available submission ids, to be loaded with `load_submission()`
@@ -157,8 +157,8 @@ def load_submission(task: TYPE_TASK_ID, subset: TYPE_DATASET_NAME, submission_id
     """Reads the json file associated to a particular submission, for a given task and dataset.
 
     Args:
-        task (__TYPE_TASK_ID): task id
-        subset (__TYPE_DATASET_NAME): dataset name
+        task (either 1, 2, 3 or 4): task id
+        subset (either "rumsey" or "ign"): dataset name
         submission_id (str): submission id, as returned by `list_submissions()`
 
     Returns:
@@ -178,7 +178,7 @@ def load_gt(subset: TYPE_DATASET_NAME) -> dict:
     """Reads the ground truth file for a given dataset
 
     Args:
-        subset (__TYPE_DATASET_NAME): dataset name
+        subset (either "rumsey" or "ign"): dataset name
 
     Returns:
         dict: Content loaded from the ground truth file
@@ -194,7 +194,7 @@ def list_gt_images(subset: TYPE_DATASET_NAME) -> list[str]:
     """Returns the list of image ids for the ground truth of a given dataset
 
     Args:
-        subset (__TYPE_DATASET_NAME): dataset name
+        subset (either "rumsey" or "ign"): dataset name
 
     Returns:
         list[str]: list of image ids
@@ -209,7 +209,7 @@ def check_for_missing_images(subset: TYPE_DATASET_NAME) -> list[str]:
     """Checks if there are missing images in the ground truth
 
     Args:
-        subset (__TYPE_DATASET_NAME): dataset name
+        subset (either "rumsey" or "ign"): dataset name
 
     Returns:
         list[str]: list of image ids that are missing from the ground truth
