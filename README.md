@@ -44,6 +44,14 @@ The **ground truth** for the test sets is **not available publicly**, so **you n
 
 
 ## Code
-Code is stored either under `maptext24-analysis/` for utility Python code ("library" code), or as notebooks.
+Code is stored either under `maptext24-analysis/` for utility Python code ("library" code), or as notebooks at the root of this repository.
 
 Paths to default locations are stored under `maptext24-analysis/paths.py`
+
+To use this code, you should first make sure you have [pipenv](https://pipenv.pypa.io/en/latest/) installed, then you should install and activate the virtual environment:
+```sh
+pipenv install --dev
+pipenv shell  # optionnal if using vscode which will assist you in picking this environment 
+```
+
+The code uses Python v3.10.
