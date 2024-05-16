@@ -93,7 +93,7 @@ def load_results(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
     submission_ids = list_results(taskid, subset)
     if filter_fn:
         submission_ids = [s for s in submission_ids if filter_fn(s)]
- 
+
     results_global = []
     results_images = []
 
