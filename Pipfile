@@ -7,6 +7,7 @@ name = "pypi"
 pandas = "*"
 jinja2 = "*"
 matplotlib = "*"
+pillow = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -10,6 +10,7 @@ from typing import Literal
 import json
 
 import pandas as pd
+from PIL import Image
 
 from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT
 
@@ -221,3 +222,16 @@ def check_for_missing_images(subset: TypeDatasetName) -> list[str]:
     # remove prefix and suffix to get the image id
     image_ids = [p.relative_to(RELPATH_DIR_IMAGES).as_posix() for p in images]
     return [img_id for img_id in image_ids if img_id not in gt]
+
+
+def open_image(image_id: str) -> Image:
+    """Opens an image from the dataset
+
+    Args:
+        image_id (str): image id in the form `{subset}/{split}/{filename}.{ext}`
+
+    Returns:
+        image: the image as a Pillow object
+    """
+    image_path = RELPATH_DIR_IMAGES / image_id
+    return Image.open(image_path)
