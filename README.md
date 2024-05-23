@@ -41,6 +41,7 @@ mkdir -p data/00-input/gt/rumsey data/00-input/gt/ign
 The **ground truth** for the test sets is **not available publicly**, so **you need to copy the secret files at the right places**:
 - `data/00-input/gt/rumsey/test.json` for the "rumsey" dataset
 - `data/00-input/gt/ign/test.json` for the "ign" dataset
+The notebook `00-prepare-gt.ipynb` can be used to split ground truth for each subset.
 
 
 ## Code
