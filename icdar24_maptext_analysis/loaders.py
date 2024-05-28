@@ -119,17 +119,21 @@ def load_results(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
             results_images.append(result_image)
 
    # Create two dataframes: one for the global results and one for the image results
-    results_global_df = pd.DataFrame.from_records(
-        results_global,
-        columns=['task_id', 'subset', 'submission_id',
-                 "quality", "fscore", "tightness", "precision", "recall"],
-        index=['task_id', 'subset', 'submission_id'])
+    indexes_global = ['task_id', 'subset', 'submission_id']
+    columns_global = (
+        indexes_global
+        + (["char_quality", "char_accuracy"] if taskid in (4,) else [])  # Only for task 4 as task 3 optimizes detection conditionned on perfect text prediction
+        + ["quality", "tightness", "fscore", "precision", "recall"]
+        )
+    results_global_df = pd.DataFrame.from_records(results_global, columns=columns_global, index=indexes_global)
 
-    results_images_df = pd.DataFrame.from_records(
-        results_images,
-        columns=['task_id', 'subset', 'submission_id', 'image_id',
-                 "quality", "fscore", "tightness", "precision", "recall"],
-        index=['task_id', 'subset', 'submission_id', 'image_id'])
+    indexes_images = ['task_id', 'subset', 'submission_id', 'image_id']
+    columns_images = (
+        indexes_images
+        + (["char_quality", "char_accuracy"] if taskid in (4,) else [])  # Only for task 4 as task 3 optimizes detection conditionned on perfect text prediction
+        + ["quality", "tightness", "fscore", "precision", "recall"]
+        )
+    results_images_df = pd.DataFrame.from_records(results_images, columns=columns_images, index=indexes_images)
 
     return results_global_df, results_images_df
 
