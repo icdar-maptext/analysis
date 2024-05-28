@@ -1,8 +1,9 @@
-\begin{table}
-\caption{Results for task 3 (word detection with perfect transcription) on Rumsey subset.}
-\begin{tabular}{crccccc}
+\begin{table}[!h]
+\caption{Results for task 3 (word detection with perfect transcription) on Rumsey subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_3_subset_rumsey}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
 \midrule
 1 & MapText Dete...Strong Pipeline & 60.1 & 84.2 & 71.3 & 76.0 & 67.2 \\
 2 & MapTest & 52.3 & 83.8 & 62.5 & 63.3 & 61.7 \\
@@ -11,5 +12,5 @@ Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det.
 5 & Baseline TESTR Checkpoint & 27.8 & 84.6 & 32.9 & 34.1 & 31.8 \\
 6 & Recognition ...uned from TrOCR & 12.2 & 78.5 & 15.5 & 18.5 & 13.4 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}

@@ -207,7 +207,7 @@ def list_gt_images(subset: TypeDatasetName) -> list[str]:
     if subset not in VALID_SUBSETS:
         raise ValueError(f"Invalid subset name: {subset}")
     gt = load_gt(subset)
-    return list(gt.keys())
+    return sorted([e["image"] for e in gt])
 
 
 def check_for_missing_images(subset: TypeDatasetName) -> list[str]:

@@ -1,13 +1,14 @@
-\begin{table}
-\caption{Results for task 1 (isolated word detection) on Rumsey subset.}
-\begin{tabular}{crccccc}
+\begin{table}[!h]
+\caption{Results for task 1 (isolated word detection) on Rumsey subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_1_subset_rumsey}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
 \midrule
 1 & MapText Dete...Strong Pipeline & 76.1 & 82.7 & 92.0 & 94.2 & 89.9 \\
-2 & dino_map & 73.3 & 84.0 & 87.2 & 87.1 & 87.4 \\
+2 & dino\_map & 73.3 & 84.0 & 87.2 & 87.1 & 87.4 \\
 3 & MapTest & 73.1 & 81.8 & 89.3 & 90.5 & 88.2 \\
-4 & dino_mvit & 72.2 & 83.6 & 86.4 & 88.9 & 84.1 \\
+4 & dino\_mvit & 72.2 & 83.6 & 86.4 & 88.9 & 84.1 \\
 5 & MapTextSpotter & 70.6 & 81.4 & 86.7 & 92.6 & 81.5 \\
 6 & ensem & 64.2 & 85.6 & 74.9 & 94.1 & 62.2 \\
 7 & Baseline TESTR Checkpoint & 55.1 & 79.6 & 69.3 & 71.9 & 66.9 \\
@@ -15,5 +16,5 @@ Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det.
 9 & MapText Using EasyOCR & 42.7 & 73.2 & 58.3 & 69.3 & 50.4 \\
 10 & MapDet & 32.7 & 69.2 & 47.2 & 53.6 & 42.2 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}

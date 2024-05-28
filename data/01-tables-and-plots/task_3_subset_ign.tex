@@ -1,13 +1,14 @@
-\begin{table}
-\caption{Results for task 3 (word detection with perfect transcription) on Fr. Land Reg. subset.}
-\begin{tabular}{crccccc}
+\begin{table}[!h]
+\caption{Results for task 3 (word detection with perfect transcription) on French Land Register subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_3_subset_ign}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
 \midrule
 1 & MapTest & 40.1 & 70.7 & 56.7 & 56.0 & 57.3 \\
 2 & DS-LP & 26.1 & 65.7 & 39.7 & 38.0 & 41.6 \\
 3 & MapText Dete...Strong Pipeline & 8.6 & 71.0 & 12.2 & 16.5 & 9.7 \\
 4 & Baseline TESTR Checkpoint & 2.2 & 74.7 & 2.9 & 8.6 & 1.8 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}

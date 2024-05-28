@@ -1,15 +1,16 @@
-\begin{table}
-\caption{Results for task 1 (isolated word detection) on Fr. Land Reg. subset.}
-\begin{tabular}{crccccc}
+\begin{table}[!h]
+\caption{Results for task 1 (isolated word detection) on French Land Register subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_1_subset_ign}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
 \midrule
-1 & dino_map & 64.7 & 72.2 & 89.7 & 88.7 & 90.8 \\
+1 & dino\_map & 64.7 & 72.2 & 89.7 & 88.7 & 90.8 \\
 2 & MapTest & 64.2 & 69.9 & 91.9 & 90.8 & 93.0 \\
 3 & DS-LP & 44.1 & 65.0 & 67.8 & 64.8 & 71.0 \\
 4 & MapText Dete...Strong Pipeline & 42.3 & 69.3 & 61.1 & 82.5 & 48.5 \\
 5 & MapDet & 35.7 & 65.3 & 54.7 & 70.1 & 44.8 \\
 6 & Baseline TESTR Checkpoint & 20.6 & 70.5 & 29.2 & 86.4 & 17.6 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}

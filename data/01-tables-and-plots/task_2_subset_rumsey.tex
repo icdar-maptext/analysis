@@ -1,13 +1,14 @@
-\begin{table}
-\caption{Results for task 2 (grouped word detection) on Rumsey subset.}
-\begin{tabular}{crccccc}
+\begin{table}[!h]
+\caption{Results for task 2 (grouped word detection) on Rumsey subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_2_subset_rumsey}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Title & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
 \midrule
 1 & MapTest & 41.9 & 74.4 & 56.3 & 44.2 & 77.8 \\
 2 & MapText Dete...Strong Pipeline & 41.5 & 75.4 & 55.1 & 43.2 & 75.8 \\
 3 & Baseline TESTR Checkpoint & 35.5 & 75.0 & 47.3 & 37.8 & 63.2 \\
 4 & DS-LP & 35.0 & 69.7 & 50.2 & 39.4 & 69.4 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
