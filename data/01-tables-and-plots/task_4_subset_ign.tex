@@ -1,10 +1,13 @@
-\begin{tabular}{lr}
+\begin{table}
+\caption{Results for task 4 (joint grouped word detection and transcription) on Fr. Land Reg. subset.}
+\begin{tabular}{crccccccc}
 \toprule
-Title & Quality (\%) \\
+Rank & Title & Char. Quality (\%) & Char. Accuracy (\%) & Det. Quality (\%) & Det. Tightness (\%) & Det. FScore (\%) & Det. Precision (\%) & Det. Recall (\%) \\
 \midrule
-MapTest & 59.8 \\
-DS-LP & 43.3 \\
-MapText Dete...Strong Pipeline & 30.6 \\
-Baseline TESTR Checkpoint & 14.6 \\
+1 & MapTest & 51.0 & 85.3 & 59.8 & 68.6 & 87.1 & 83.7 & 90.9 \\
+2 & DS-LP & 37.1 & 85.6 & 43.3 & 64.9 & 66.7 & 63.1 & 70.8 \\
+3 & MapText Dete...Strong Pipeline & 17.1 & 55.7 & 30.6 & 68.8 & 44.6 & 44.2 & 45.0 \\
+4 & Baseline TESTR Checkpoint & 6.0 & 41.5 & 14.6 & 68.7 & 21.2 & 58.7 & 13.0 \\
 \bottomrule
 \end{tabular}
+\end{table}
