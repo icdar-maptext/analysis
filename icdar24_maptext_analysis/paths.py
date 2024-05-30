@@ -34,3 +34,8 @@ RELPATH_DIR_GT = Path("data/00-input/gt")
 # gt files for each dataset will then be
 # - `{RELPATH_DIR_GT}/rumsey/test.json` for "rumsey" dataset
 # - `{RELPATH_DIR_GT}/ign/test.json` for "ign" dataset
+
+# VALID SUMISSIONS
+RELPATH_FILE_VALID_SUBMISSIONS = Path("valid_submissions.csv")
+# list of valid submissions (submission ids) to consider for the analysis
+# format: task,subset,submission_id
