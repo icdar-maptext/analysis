@@ -6,11 +6,12 @@ Utility functions to load data from the dataset and the submissions
 from pathlib import Path
 from functools import lru_cache
 import glob
-from typing import Literal
+from typing import Literal, Union
 import json
 
 import pandas as pd
 from PIL import Image
+import numpy as np
 
 from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT, RELPATH_FILE_VALID_SUBMISSIONS
 
@@ -253,11 +254,35 @@ def load_valid_submissions_metadata() -> pd.DataFrame:
     return valid_submissions
 
 
-def list_valid_submission_ids() -> list[int]:
+def list_valid_submission_ids(task_id: Union[TypeTaskId, None] = None, subset: Union[TypeDatasetName, None] = None) -> list[int]:
     """Returns the list of valid submission ids
 
     Returns:
         list[int]: list of valid submission ids
     """
-    return load_valid_submissions_metadata()["submission_id"].tolist()
+    valid_submissions_metadata = load_valid_submissions_metadata()
+    # generate a mask for task_id and subset
+    mask = np.ones(len(valid_submissions_metadata), dtype=bool)
+    if task_id is not None:
+        mask &= valid_submissions_metadata["task"] == task_id
+    if subset is not None:
+        mask &= valid_submissions_metadata["subset"] == subset
+    if not mask.any():
+        raise ValueError("No valid submission found for the given task and subset")
+    # gather the submission ids
+    valid_submissions_ids = valid_submissions_metadata.loc[mask, "submission_id"].tolist()
+    return valid_submissions_ids
 
+def load_valid_results(task_id: TypeTaskId, subset: TypeDatasetName) -> pd.DataFrame:
+    """Load the valid results for a given task and subset
+
+    Args:
+        task_id (TypeTaskId): The task ID.
+        subset (TypeDatasetName): The subset.
+
+    Returns:
+        pd.DataFrame: The valid results for the given task and subset
+    """
+    valid_submissions_ids = list_valid_submission_ids(task_id, subset)
+    results_global, results_images = load_results(task_id, subset, lambda s: int(s) in valid_submissions_ids)
+    return results_global, results_images
