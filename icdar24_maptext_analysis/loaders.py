@@ -12,7 +12,7 @@ import json
 import pandas as pd
 from PIL import Image
 
-from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT
+from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT, RELPATH_FILE_VALID_SUBMISSIONS
 
 # Some utility fonctions to obtain file lists
 
@@ -239,3 +239,25 @@ def open_image(image_id: str) -> Image:
     """
     image_path = RELPATH_DIR_IMAGES / image_id
     return Image.open(image_path)
+
+
+@lru_cache
+def load_valid_submissions() -> pd.DataFrame:
+    """Load the list of valid submissions
+
+    Returns:
+        pd.DataFrame: The list of valid submissions
+    """
+    valid_submissions =  pd.read_csv(RELPATH_FILE_VALID_SUBMISSIONS)
+    assert len(valid_submissions) == 44
+    return valid_submissions
+
+
+def list_valid_submission_ids() -> list[int]:
+    """Returns the list of valid submission ids
+
+    Returns:
+        list[int]: list of valid submission ids
+    """
+    return load_valid_submissions()["submission_id"].tolist()
+
