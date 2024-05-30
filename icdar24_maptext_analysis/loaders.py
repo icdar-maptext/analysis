@@ -249,7 +249,7 @@ def load_valid_submissions_metadata() -> pd.DataFrame:
         pd.DataFrame: The list of valid submissions
     """
     valid_submissions =  pd.read_csv(RELPATH_FILE_VALID_SUBMISSIONS)
-    assert len(valid_submissions) == 44
+    assert len(valid_submissions) == 43
     return valid_submissions
 
 
