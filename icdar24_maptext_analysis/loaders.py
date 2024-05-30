@@ -242,7 +242,7 @@ def open_image(image_id: str) -> Image:
 
 
 @lru_cache
-def load_valid_submissions() -> pd.DataFrame:
+def load_valid_submissions_metadata() -> pd.DataFrame:
     """Load the list of valid submissions
 
     Returns:
@@ -259,5 +259,5 @@ def list_valid_submission_ids() -> list[int]:
     Returns:
         list[int]: list of valid submission ids
     """
-    return load_valid_submissions()["submission_id"].tolist()
+    return load_valid_submissions_metadata()["submission_id"].tolist()
 
