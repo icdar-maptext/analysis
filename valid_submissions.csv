@@ -13,7 +13,6 @@ task,subset,submission_id,method_name
 1,ign,113478,Baseline TESTR Checkpoint
 1,ign,114197,ensem
 1,ign,114279,MapTest
-1,ign,114298,dino_mvit
 1,ign,114302,dino_map
 1,ign,114303,MapDet
 1,ign,114579,MapText Detection Strong Pipeline  
