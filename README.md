@@ -59,5 +59,6 @@ pipenv shell  # optionnal if using vscode which will assist you in picking this 
 
 Brief description of the notebooks:
 - `00-prepare-gt.ipynb`: takes the secret GT file for the test set and splits it for each dataset.
-- `10-results-plots-tables.ipynb`: reads evaluation files, ground truth files, and metadata file about submissions to extract the global metrics about each {subset × task × method} to produce tables and bar plots for the report.
-- `20-qualitative-results.ipynb`: (WIP) produces qualitative results, i.e., visualizations of the predictions for each {subset × task × method}, in order to better understand what makes some method good or bad.
+- `10-list-valid-submissions.ipynb`: generates the list of valid submissions for each task and subset, along with their name. The output file is `valid_submissions.csv`.
+- `10-results-plots-tables.ipynb`: reads evaluation files, ground truth files, and metadata file about submissions to extract the global metrics about each {subset × task × method} to produce tables and bar plots for the report. Results are output under `data/10-tables-plots/`.
+- `20-qualitative-results.ipynb`: (WIP) produces qualitative results, i.e., visualizations of the predictions for each {subset × task × method}, in order to better understand what makes some method good or bad. Results are output under `data/20-raw-predictions/`.
