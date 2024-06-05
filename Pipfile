@@ -8,6 +8,10 @@ pandas = "*"
 jinja2 = "*"
 matplotlib = "*"
 pillow = "*"
+numpy = "*"
+shapely = "*"
+scipy = "*"
+pyeditdistance = "*"
 
 [dev-packages]
 ipykernel = "*"
