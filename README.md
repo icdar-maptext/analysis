@@ -30,9 +30,9 @@ tar -C data/00-input/ -xaf data/00-input/maptext24-submissions.tar.bz2
 rm data/00-input/maptext24-submissions.tar.bz2
 
 # Download and prepare evaluation results (both datasets)
-wget -O data/00-input/maptext24-results.tar.xz https://weinman.cs.grinnell.edu/tmp/maptext24-results.tar.xz
-tar -C data/00-input/ -xaf data/00-input/maptext24-results.tar.xz
-rm data/00-input/maptext24-results.tar.xz
+wget -O data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2 https://weinman.cs.grinnell.edu/tmp/defaults_filter_rumsey-20240606023809.tar.bz2
+tar -C data/00-input/ -xaf data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2
+rm data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2
 
 # Prepare empty directories for GT
 mkdir -p data/00-input/gt/rumsey data/00-input/gt/ign
