@@ -12,7 +12,7 @@ RELPATH_DIR_IMAGES = Path("data/00-input/images")
 # - `{RELPATH_DIR_IMAGES}/ign/test/*.jpg` for "ign" dataset
 
 # RESULTS / EVALUATIONS
-RELPATH_DIR_RESULTS = Path("data/00-input/defaults_filter_rumsey-20240606023809/data/ch28")
+RELPATH_DIR_RESULTS = Path("data/00-input/ch28")
 # results for each submission will then be
 # `{RELPATH_DIR_RESULTS}/t{TASKID}/f{FILEID}/{SUBID}.json` where:
 # - `TASKID` in (1, 2, 3, 4) is the task identifier
