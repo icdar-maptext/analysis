@@ -25,16 +25,18 @@ unzip data/00-input/images/test-ign.zip -d data/00-input/images/
 rm data/00-input/images/test-ign.zip
 
 # Download and prepare participants' submissions (both datasets)
+mkdir -p data/00-input/submissions/
 wget -O data/00-input/maptext24-submissions.tar.bz2 https://zenodo.org/records/11518609/files/submissions.tar.bz2?download=1
-tar -C data/00-input/ -xaf data/00-input/maptext24-submissions.tar.bz2
+tar -C data/00-input/submissions -xaf data/00-input/maptext24-submissions.tar.bz2
 rm data/00-input/maptext24-submissions.tar.bz2
 wget -O data/00-input/submissions.csv https://zenodo.org/records/11518609/files/submissions.csv?download=1
 
 
 # Download and prepare evaluation results (both datasets)
-wget -O data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2 https://weinman.cs.grinnell.edu/tmp/defaults_filter_rumsey-20240606023809.tar.bz2
-tar -C data/00-input/ -xaf data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2
-rm data/00-input/defaults_filter_rumsey-20240606023809.tar.bz2
+mkdir -p data/00-input/evaluations/
+wget -O data/00-input/evaluations.tar.bz2 https://zenodo.org/records/11519112/files/evaluations.tar.bz2?download=1
+tar -C data/00-input/evaluations/ -xaf data/00-input/evaluations.tar.bz2
+rm data/00-input/evaluations.tar.bz2
 
 # Prepare empty directories for GT
 mkdir -p data/00-input/gt/rumsey data/00-input/gt/ign
