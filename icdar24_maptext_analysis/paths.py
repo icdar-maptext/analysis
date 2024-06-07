@@ -12,7 +12,7 @@ RELPATH_DIR_IMAGES = Path("data/00-input/images")
 # - `{RELPATH_DIR_IMAGES}/ign/test/*.jpg` for "ign" dataset
 
 # RESULTS / EVALUATIONS
-RELPATH_DIR_RESULTS = Path("data/00-input/defaults_filter_rumsey-20240606023809/data/ch28")
+RELPATH_DIR_RESULTS = Path("data/00-input/evaluations/ch28")
 # results for each submission will then be
 # `{RELPATH_DIR_RESULTS}/t{TASKID}/f{FILEID}/{SUBID}.json` where:
 # - `TASKID` in (1, 2, 3, 4) is the task identifier
@@ -21,13 +21,13 @@ RELPATH_DIR_RESULTS = Path("data/00-input/defaults_filter_rumsey-20240606023809/
 
 
 # PARTICIPANTS' SUBMISSIONS
-RELPATH_DIR_SUBMISSIONS = Path("data/00-input/submissions_competition-20240507073418/data/ch28")
+RELPATH_DIR_SUBMISSIONS = Path("data/00-input/submissions/ch28")
 # each submission has the same naming structure as the evaluation files
 # (but with different content of course)
 # there is an extra `submission.csv` containing identifiers and other coarse information
 
 # METADATA FOR SUBMISSIONS
-RELPATH_FILE_SUBMISSIONS_META = Path("data/00-input/submissions_competition-20240507073418/data/submissions.csv")
+RELPATH_FILE_SUBMISSIONS_META = Path("data/00-input/submissions.csv")
 
 # GT
 RELPATH_DIR_GT = Path("data/00-input/gt")
