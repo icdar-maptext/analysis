@@ -34,7 +34,7 @@ wget -O data/00-input/submissions.csv https://zenodo.org/records/11518609/files/
 
 # Download and prepare evaluation results (both datasets)
 mkdir -p data/00-input/evaluations/
-wget -O data/00-input/evaluations.tar.bz2 https://zenodo.org/records/11519112/files/evaluations.tar.bz2?download=1
+wget -O data/00-input/evaluations.tar.bz2 https://zenodo.org/records/11549943/files/evaluations.tar.bz2?download=1
 tar -C data/00-input/evaluations/ -xaf data/00-input/evaluations.tar.bz2
 rm data/00-input/evaluations.tar.bz2
 
