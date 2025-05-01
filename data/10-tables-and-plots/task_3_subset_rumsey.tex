@@ -1,0 +1,20 @@
+\begin{table}[!ht]
+\caption{Results for task 3 (word detection with perfect transcription) on Rumsey subset. Values expressed in percentage. For all metrics, higher is better.}
+\label{tab:task_3_subset_rumsey}
+\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
+\toprule
+Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
+\midrule
+1 & MapText Strong Pipeline & 78.6 & 83.7 & 93.8 & 95.9 & 91.8 \\
+2 & Self-Sequencer & 77.8 & 86.1 & 90.3 & 91.5 & 89.1 \\
+3 & [Baseline Ma...Strong Pipeline & 75.1 & 83.3 & 90.2 & 96.2 & 85.0 \\
+4 & [Baseline MapText '24] MapTest & 73.1 & 81.8 & 89.3 & 90.5 & 88.2 \\
+5 & [Baseline Ma... MapTextSpotter & 70.6 & 81.4 & 86.7 & 92.6 & 81.5 \\
+6 & CREPE + BezierCurve & 63.9 & 73.6 & 86.8 & 87.1 & 86.5 \\
+7 & [Baseline Ma...ESTR Checkpoint & 55.1 & 79.5 & 69.3 & 71.9 & 66.9 \\
+8 & [Baseline MapText'24] DS-LP & 53.8 & 71.6 & 75.2 & 71.8 & 78.9 \\
+9 & Word-Level T...g and PaddleOCR & 35.4 & 73.9 & 47.9 & 59.5 & 40.0 \\
+10 & YOLOv8\_ViTAE\_PolygonDetector & 12.7 & 76.0 & 16.7 & 61.7 & 9.6 \\
+\bottomrule
+\end{tabular}}
+\end{table}

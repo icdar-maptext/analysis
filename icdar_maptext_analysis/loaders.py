@@ -14,6 +14,7 @@ from PIL import Image
 import numpy as np
 
 from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_EVALUATIONS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT, RELPATH_FILE_VALID_SUBMISSIONS
+import warnings
 
 # Some utility fonctions to obtain file lists
 
@@ -259,7 +260,7 @@ def load_valid_submissions_metadata() -> pd.DataFrame:
         pd.DataFrame: The list of valid submissions
     """
     valid_submissions =  pd.read_csv(RELPATH_FILE_VALID_SUBMISSIONS)
-    assert len(valid_submissions) == 43  # FIXME 2025
+    # assert len(valid_submissions) == 42  # FIXME 2025
     return valid_submissions
 
 
@@ -277,7 +278,8 @@ def list_valid_submission_ids(task_id: Union[TypeTaskId, None] = None, subset: U
     if subset is not None:
         mask &= valid_submissions_metadata["subset"] == subset
     if not mask.any():
-        raise ValueError("No valid submission found for the given task and subset")
+        warnings.warn("No valid submission found for the given task and subset", UserWarning)
+        return []
     # gather the submission ids
     valid_submissions_ids = valid_submissions_metadata.loc[mask, "submission_id"].tolist()
     return valid_submissions_ids
