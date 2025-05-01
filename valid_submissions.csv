@@ -30,6 +30,12 @@ task,subset,submission_id,method_name
 3,rumsey,125454,CREPE + BezierCurve
 3,rumsey,125463,YOLOv8_ViTAE_PolygonDetector
 3,rumsey,125480,Word-Level Text Detection and Recognition on Historical Maps Using Preprocessing and PaddleOCR
+3,rumsey,125648,Baseline TESTR Finetuned
+3,ign,125463,YOLOv8_ViTAE_PolygonDetector
+3,ign,125648,Baseline TESTR Finetuned
+3,twh,124985,MapText Strong Pipeline
+3,twh,125463,YOLOv8_ViTAE_PolygonDetector
+3,twh,125648,Baseline TESTR Finetuned
 4,rumsey,121883,[Baseline MapText'24] DS-LP
 4,rumsey,124937,Self-Sequencer
 4,rumsey,125336,CREPE + BezierCurve
