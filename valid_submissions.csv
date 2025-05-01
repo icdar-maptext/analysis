@@ -1,0 +1,37 @@
+task,subset,submission_id,method_name
+1,rumsey,121832,[MapText'24 Baseline] MapText Detection Strong Pipeline
+1,rumsey,124853,MapTextSpotter
+1,rumsey,124940,Self-Sequencer
+1,rumsey,124983,MapText Strong Pipeline
+1,rumsey,125456,CREPE + BezierCurve
+1,rumsey,125458,YOLOv8-ViTAE-Polygon
+1,rumsey,125479,PolyTextTR
+1,rumsey,125481,Word-Level Text Detection on Historical Maps Using Multi-Stage Preprocessing and PaddleOCR
+1,rumsey,125646,Baseline TESTR Finetuned
+1,ign,125458,YOLOv8-ViTAE-Polygon
+1,ign,125479,PolyTextTR
+1,ign,125646,Baseline TESTR Finetuned
+1,twh,124983,MapText Strong Pipeline
+1,twh,125458,YOLOv8-ViTAE-Polygon
+1,twh,125479,PolyTextTR
+1,twh,125646,Baseline TESTR Finetuned
+2,rumsey,121864,[Baseline MapText'24] DS-LP
+2,rumsey,124938,Self-Sequencer
+2,rumsey,125455,CREPE + BezierCurve
+2,rumsey,125647,Baseline TESTR Finetuned + Heuristic MST
+2,ign,125647,Baseline TESTR Finetuned + Heuristic MST
+3,rumsey,121874,[Baseline MapText '24] MapText Detection and Recognition Strong Pipeline
+3,rumsey,121875,[Baseline MapText '24] MapTest
+3,rumsey,121876,[Baseline MapText'24] MapTextSpotter
+3,rumsey,121877,[Baseline MapText'24] DS-LP
+3,rumsey,121878,[Baseline MapText'24] TESTR Checkpoint
+3,rumsey,124939,Self-Sequencer
+3,rumsey,124985,MapText Strong Pipeline
+3,rumsey,125454,CREPE + BezierCurve
+3,rumsey,125463,YOLOv8_ViTAE_PolygonDetector
+3,rumsey,125480,Word-Level Text Detection and Recognition on Historical Maps Using Preprocessing and PaddleOCR
+4,rumsey,121883,[Baseline MapText'24] DS-LP
+4,rumsey,124937,Self-Sequencer
+4,rumsey,125336,CREPE + BezierCurve
+4,rumsey,125651,Baseline TESTR Finetuned + Heuristic MST
+4,ign,125651,Baseline TESTR Finetuned + Heuristic MST

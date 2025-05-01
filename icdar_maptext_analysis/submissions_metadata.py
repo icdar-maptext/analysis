@@ -8,14 +8,16 @@ SUBMISSION_METADATA = pd.read_csv(RELPATH_FILE_SUBMISSIONS_META, index_col="ID")
 
 USER_TO_TEAM_NAME: dict[str, str] = {
     'user_9': "",  # "Org.",  # MapText Organizers
-    'user_36250': "",
-    'user_51436': "",
-    'user_43613': "",
-    'user_50898': "",
-    'user_53700': "",
-    'user_53137': "",
-    'user_51343': "",
+
+    "user_4637": "",
+    "user_51343": "",
+    "user_51696": "",
+    "user_51978": "",
+    "user_59938": "",
+    "user_60141": "",
+    "user_61902": "",
 }
+
 
 def lookup_generate_title(submission_id: int) -> str:
     """
@@ -29,7 +31,7 @@ def lookup_generate_title(submission_id: int) -> str:
     """
     sub_name = SUBMISSION_METADATA.loc[submission_id, "Title"]
     user_id = SUBMISSION_METADATA.loc[submission_id, "User"]
-    team_name = USER_TO_TEAM_NAME[user_id]
+    team_name = USER_TO_TEAM_NAME.get(user_id, "")
     return f"{team_name} {sub_name}" if len(team_name) > 0 else sub_name  # ← change the format for titles here (abreviation is handled in `shorten_title()`)
 
 def shorten_title(title: str, max_length: int = 30) -> str:

@@ -13,22 +13,30 @@ import pandas as pd
 from PIL import Image
 import numpy as np
 
-from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_RESULTS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT, RELPATH_FILE_VALID_SUBMISSIONS
+from .paths import RELPATH_DIR_IMAGES, RELPATH_DIR_EVALUATIONS, RELPATH_DIR_SUBMISSIONS, RELPATH_DIR_GT, RELPATH_FILE_VALID_SUBMISSIONS
 
 # Some utility fonctions to obtain file lists
 
 VALID_TASKS = [1, 2, 3, 4]
 TypeTaskId = Literal[1, 2, 3, 4]
 
-VALID_SUBSETS = ["rumsey", "ign"]
-TypeDatasetName = Literal["rumsey", "ign"]
+VALID_SUBSETS = ["rumsey", "ign", "twh"]
+TypeDatasetName = Literal["rumsey", "ign", "twh"]
 DATASET_NAMETOID: dict[TypeDatasetName, int] = {
     "rumsey": 1,
-    "ign": 2
+    "ign": 2,
+    "twh": 3
 }
 DATASET_IDTONAME: dict[int, TypeDatasetName] = {
     1: "rumsey",
-    2: "ign"
+    2: "ign",
+    3: "twh",
+}
+
+DATASET_NAME_TO_SUBDIR_NAME: dict[TypeDatasetName, str] = {
+    "rumsey": "rumsey",
+    "ign": "ign25",
+    "twh": "tw25"
 }
 
 @lru_cache
@@ -37,17 +45,18 @@ def list_available_images(subset: TypeDatasetName) -> list[Path]:
     if subset not in VALID_SUBSETS:
         raise ValueError(f"Invalid subset name: {subset}")
     file_ext = "png" if subset == "rumsey" else "jpg"
-    glob_expr = RELPATH_DIR_IMAGES / subset / "test" / f"*.{file_ext}"
+    subdir = DATASET_NAME_TO_SUBDIR_NAME[subset]
+    glob_expr = RELPATH_DIR_IMAGES / subdir / "test" / f"*.{file_ext}"
     all_files = glob.glob(glob_expr.as_posix())
     return [Path(p) for p in sorted(all_files)]
 
 @lru_cache
-def list_results(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
-    """Returns the ids of the submissions available for the given task and dataset
+def list_evaluations(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
+    """Returns the ids of the submission evaluations available for the given task and dataset
 
     Args:
         task (either 1, 2, 3 or 4): Task id
-        subset (either "rumsey" or "ign"): subset name
+        subset (either "rumsey", "ign" or "twh"): subset name
 
     Returns:
         list[str]: list of available submission ids, to be loaded with `load_result()`
@@ -57,18 +66,18 @@ def list_results(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
     if subset not in VALID_SUBSETS:
         raise ValueError(f"Invalid subset name: {subset}")
     subset_id = DATASET_NAMETOID[subset]
-    glob_expr = RELPATH_DIR_RESULTS / f"t{task}" / f"f{subset_id}" / "*.json"
+    glob_expr = RELPATH_DIR_EVALUATIONS / f"t{task}" / f"f{subset_id}" / "*.json"
     all_files = glob.glob(glob_expr.as_posix())
     all_files = [Path(p) for p in sorted(all_files)]
     return [p.stem for p in all_files]
 
 
-def load_result(task: TypeTaskId, subset: TypeDatasetName, submission_id: str) -> dict:
-    """Reads the json file associated to a particular submission, for a given task and dataset.
+def load_evaluation(task: TypeTaskId, subset: TypeDatasetName, submission_id: str) -> dict:
+    """Reads the evaluation json file associated to a particular submission, for a given task and dataset.
 
     Args:
         task (either 1, 2, 3 or 4): task id
-        subset (either "rumsey" or "ign"): dataset name
+        subset (either "rumsey", "ign" or "twh"): dataset name
         submission_id (str): submission id, as returned by `list_results()`
 
     Returns:
@@ -79,20 +88,20 @@ def load_result(task: TypeTaskId, subset: TypeDatasetName, submission_id: str) -
     if subset not in VALID_SUBSETS:
         raise ValueError(f"Invalid subset name: {subset}")
     subset_id = DATASET_NAMETOID[subset]
-    file_path = RELPATH_DIR_RESULTS / f"t{task}" / f"f{subset_id}" / f"{submission_id}.json"
+    file_path = RELPATH_DIR_EVALUATIONS / f"t{task}" / f"f{subset_id}" / f"{submission_id}.json"
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def load_results(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
+def load_evaluations(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
     """
-    Load all results for a given task and subset as dataframes.
+    Load all evaluations for a given task and subset as dataframes.
     :param taskid: The task ID.
     :param subset: The subset.
     :param filter: A function that filters the results by submission id.
     :return: A list of results.
     """
-    submission_ids = list_results(taskid, subset)
+    submission_ids = list_evaluations(taskid, subset)
     if filter_fn:
         submission_ids = [s for s in submission_ids if filter_fn(s)]
 
@@ -101,7 +110,7 @@ def load_results(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None):
 
     for submission_id in submission_ids:
         # Read the results
-        result_raw = load_result(taskid, subset, submission_id)
+        result_raw = load_evaluation(taskid, subset, submission_id)
         result_global = result_raw['results']
         result_images = result_raw['images']
 
@@ -144,7 +153,7 @@ def list_submissions(task: TypeTaskId, subset: TypeDatasetName) -> list[str]:
 
     Args:
         task (either 1, 2, 3 or 4): Task id
-        subset (either "rumsey" or "ign"): subset name
+        subset (either "rumsey", "ign" or "twh"): subset name
 
     Returns:
         list[str]: list of available submission ids, to be loaded with `load_submission()`
@@ -250,7 +259,7 @@ def load_valid_submissions_metadata() -> pd.DataFrame:
         pd.DataFrame: The list of valid submissions
     """
     valid_submissions =  pd.read_csv(RELPATH_FILE_VALID_SUBMISSIONS)
-    assert len(valid_submissions) == 43
+    assert len(valid_submissions) == 43  # FIXME 2025
     return valid_submissions
 
 
@@ -273,16 +282,16 @@ def list_valid_submission_ids(task_id: Union[TypeTaskId, None] = None, subset: U
     valid_submissions_ids = valid_submissions_metadata.loc[mask, "submission_id"].tolist()
     return valid_submissions_ids
 
-def load_valid_results(task_id: TypeTaskId, subset: TypeDatasetName) -> pd.DataFrame:
-    """Load the valid results for a given task and subset
+def load_valid_evaluations(task_id: TypeTaskId, subset: TypeDatasetName) -> pd.DataFrame:
+    """Load the valid evaluations for a given task and subset
 
     Args:
         task_id (TypeTaskId): The task ID.
         subset (TypeDatasetName): The subset.
 
     Returns:
-        pd.DataFrame: The valid results for the given task and subset
+        pd.DataFrame: The valid evaluations for the given task and subset
     """
     valid_submissions_ids = list_valid_submission_ids(task_id, subset)
-    results_global, results_images = load_results(task_id, subset, lambda s: int(s) in valid_submissions_ids)
+    results_global, results_images = load_evaluations(task_id, subset, lambda s: int(s) in valid_submissions_ids)
     return results_global, results_images

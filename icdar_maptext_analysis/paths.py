@@ -10,18 +10,19 @@ RELPATH_DIR_IMAGES = Path("data/00-input/images")
 # images for each dataset will then be
 # - `{RELPATH_DIR_IMAGES}/rumsey/test/*.png` for "rumsey" dataset
 # - `{RELPATH_DIR_IMAGES}/ign/test/*.jpg` for "ign" dataset
+# - `{RELPATH_DIR_IMAGES}/twh/test/*.jpg` for "twh" dataset
 
 # RESULTS / EVALUATIONS
-RELPATH_DIR_RESULTS = Path("data/00-input/evaluations/ch28")
+RELPATH_DIR_EVALUATIONS = Path("data/00-input/evaluations/ch32")
 # results for each submission will then be
 # `{RELPATH_DIR_RESULTS}/t{TASKID}/f{FILEID}/{SUBID}.json` where:
 # - `TASKID` in (1, 2, 3, 4) is the task identifier
-# - `FILEID` in (1, 2) is the dataset identifier: 1 for "rumsey", 2 for "ign"
+# - `FILEID` in (1, 2, 3) is the dataset identifier: 1 for "rumsey", 2 for "ign", 3 for "twh"
 # - `SUBID` is the unique submission id (see associated `submission.csv` file in submissions dir)
 
 
 # PARTICIPANTS' SUBMISSIONS
-RELPATH_DIR_SUBMISSIONS = Path("data/00-input/submissions/ch28")
+RELPATH_DIR_SUBMISSIONS = Path("data/00-input/submissions/ch32")
 # each submission has the same naming structure as the evaluation files
 # (but with different content of course)
 # there is an extra `submission.csv` containing identifiers and other coarse information
