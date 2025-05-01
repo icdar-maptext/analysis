@@ -133,7 +133,8 @@ def load_evaluations(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None
     indexes_global = ['task_id', 'subset', 'submission_id']
     columns_global = (
         indexes_global
-        + (["char_quality", "char_accuracy"] if taskid in (4,) else [])  # Only for task 4 as task 3 optimizes detection conditionned on perfect text prediction
+        + (["char_quality", "char_accuracy"] if taskid in (3, 4) else [])
+        + ["hmean", "edges_recall", "edges_precision", "edges_fscore"]
         + ["quality", "tightness", "fscore", "precision", "recall"]
         )
     results_global_df = pd.DataFrame.from_records(results_global, columns=columns_global, index=indexes_global)
@@ -141,7 +142,8 @@ def load_evaluations(taskid: TypeTaskId, subset: TypeDatasetName, filter_fn=None
     indexes_images = ['task_id', 'subset', 'submission_id', 'image_id']
     columns_images = (
         indexes_images
-        + (["char_quality", "char_accuracy"] if taskid in (4,) else [])  # Only for task 4 as task 3 optimizes detection conditionned on perfect text prediction
+        + (["char_quality", "char_accuracy"] if taskid in (3, 4) else [])
+        + ["hmean", "edges_recall", "edges_precision", "edges_fscore"]
         + ["quality", "tightness", "fscore", "precision", "recall"]
         )
     results_images_df = pd.DataFrame.from_records(results_images, columns=columns_images, index=indexes_images)

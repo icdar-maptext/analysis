@@ -1,13 +1,13 @@
-\begin{table}[!ht]
+\begin{table}[!tb]
 \caption{Results for task 3 (word detection with perfect transcription) on Chinese Historical Topographic Maps subset. Values expressed in percentage. For all metrics, higher is better.}
 \label{tab:task_3_subset_twh}
 \resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
 \toprule
-Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
+Rank & Method name & HMean & Char. Acc. & Tightness & Det. Precision & Det. Recall \\
 \midrule
-1 & MapText Strong Pipeline & 81.3 & 87.5 & 93.0 & 96.5 & 89.7 \\
-2 & Baseline TESTR Finetuned & 66.7 & 88.2 & 75.6 & 71.0 & 80.8 \\
-3 & YOLOv8\_ViTAE\_PolygonDetector & 36.7 & 85.3 & 43.0 & 35.9 & 53.7 \\
+1 & MapText Strong Pipeline & 83.3 & 66.2 & 87.5 & 96.5 & 89.7 \\
+2 & Baseline TESTR Finetuned & 78.4 & 75.6 & 88.2 & 71.0 & 80.8 \\
+3 & YOLOv8\_ViTAE\_PolygonDetector & 54.6 & 66.2 & 85.3 & 35.9 & 53.7 \\
 \bottomrule
 \end{tabular}}
 \end{table}

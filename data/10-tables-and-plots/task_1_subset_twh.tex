@@ -1,14 +1,14 @@
-\begin{table}[!ht]
+\begin{table}[!tb]
 \caption{Results for task 1 (isolated word detection) on Chinese Historical Topographic Maps subset. Values expressed in percentage. For all metrics, higher is better.}
 \label{tab:task_1_subset_twh}
-\resizebox{\textwidth}{!}{\begin{tabular}{crccccc}
+\resizebox{\textwidth}{!}{\begin{tabular}{crcccc}
 \toprule
-Rank & Method name & Det. Quality & Tightness & FScore & Precision & Recall \\
+Rank & Method name & HMean & Tightness & Det. Precision & Det. Recall \\
 \midrule
-1 & MapText Strong Pipeline & 81.3 & 87.5 & 93.0 & 96.5 & 89.7 \\
-2 & Baseline TESTR Finetuned & 66.7 & 88.2 & 75.6 & 71.0 & 80.8 \\
-3 & PolyTextTR & 56.6 & 82.4 & 68.7 & 65.5 & 72.3 \\
-4 & YOLOv8-ViTAE-Polygon & 22.0 & 84.9 & 25.9 & 15.4 & 82.8 \\
+1 & MapText Strong Pipeline & 91.1 & 87.5 & 96.5 & 89.7 \\
+2 & Baseline TESTR Finetuned & 79.4 & 88.2 & 71.0 & 80.8 \\
+3 & PolyTextTR & 72.7 & 82.4 & 65.5 & 72.3 \\
+4 & YOLOv8-ViTAE-Polygon & 33.8 & 84.9 & 15.4 & 82.8 \\
 \bottomrule
 \end{tabular}}
 \end{table}
