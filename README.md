@@ -65,11 +65,12 @@ Python files are organized either under `maptext-analysis/` for utility Python c
 
 Paths to default locations are stored under `maptext-analysis/paths.py`
 
-To use this code, you should first make sure you have [pipenv](https://pipenv.pypa.io/en/latest/) installed, then you should install and activate the virtual environment:
+To use this code, you should first make sure you have [uv](https://github.com/astral-sh/uv) installed, then you should install and activate the virtual environment with:
 ```sh
-pipenv install --dev
-pipenv shell  # optional if using vscode which will assist you in picking this environment 
+uv sync
 ```
+
+You can then use `uv run ...` to run some code, or open your favorite notebook editor and point it to the right virtual environment (`.venv`).
 
 Brief description of the notebooks:
 - `00-prepare-gt.ipynb`: takes the secret GT file for the test set and splits it for each dataset.
