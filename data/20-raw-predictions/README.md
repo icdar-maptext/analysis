@@ -9,7 +9,7 @@ Files structure: `{TASK}/{SUBSET}/{SELECTION}/{IMAGEID}.pdf` where
 - `{SELECTION}` is "random", "easy" or "hard"
 - `{IMAGEID}` is the image id in the dataset
 
-Example: `20-raw-predictions/task2/ign/hard/000016.pdf`
+Example: `./task2/ign/hard/000016.pdf`
 
 For each image, the PDF contains a comparison of the raw predictions of each submission, with the ground truth.
 
